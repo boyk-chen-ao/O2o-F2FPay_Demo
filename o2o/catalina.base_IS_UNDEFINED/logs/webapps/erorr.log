@@ -1,0 +1,5 @@
+2019-08-23 21:51:41.212 [main] ERROR com.imooc.o2o.util.ImageUtil - javax.imageio.IIOException: Can't read input file!
+2019-08-23 21:56:00.218 [main] ERROR com.imooc.o2o.util.ImageUtil - javax.imageio.IIOException: Can't read input file!
+2019-08-23 21:56:42.002 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: Could not find file: /Users/boykchen/Desktop/like/屏幕快照\ 2019-01-16\ 下午2.48.16.png
+2019-08-23 22:01:04.094 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: Could not find file: /Users/boykchen/Desktop/like/屏幕快照\ 2019-01-16\ 下午2.48.16.png
+2019-08-23 22:01:50.131 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: /home/chensa/image/upload/item/shop/52/2019082322014981974.png (No such file or directory)

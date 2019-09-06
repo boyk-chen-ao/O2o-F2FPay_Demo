@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.imooc.o2o.dao.ShopDao">
+
+    <insert id="insertShop" useGeneratedKeys="true" keyColumn="shop_id" keyProperty="shopId">
+            INSERT INTO
+            tb_shop
+            (
+             owner_id,                      <!-- 店铺创建人 -->
+             area_id,                       <!-- 区域ID -->
+             shop_category_id,              <!-- 店铺类别 -->
+             shop_name,                     <!-- 店铺名称 -->
+             shop_desc,                     <!-- 店铺简介 -->
+             shop_addr,                     <!-- 店铺地址 -->
+             phone,                         <!-- 店铺号码 -->
+             shop_img,                      <!-- 店铺门面图片地址 -->
+             priority,                      <!-- 权重 -->
+             create_time,                   <!-- 创建时间 -->
+             last_edit_time,                <!-- 最近一次更新的时间 -->
+             enable_status,                 <!-- 店铺状态 -1.不可用 0.审核中 1.可用 -->
+             advice                         <!-- 超级管理员给店家的提醒 -->
+            )
+            VALUE
+            (
+            #{owner.userId},
+            #{area.areaId},
+            #{shopCategory.shopCategoryId},
+            #{shopName},
+            #{shopDesc},
+            #{shopAddr},
+            #{phone},
+            #{shopImg},
+            #{priority},
+            #{createTime},
+            #{lastEditTime},
+            #{enableStatus},
+            #{advice}
+            )
+    </insert>
+
+    <update id="updateShop" parameterType="com.imooc.o2o.entity.Shop">
+            update tb_shop
+            <set>
+                <if test="shopName != null and shopName != ''">shop_name=#{shopName},</if>
+                <if test="shopDesc != null">shop_desc=#{shopDesc},</if>
+                <if test="shopAddr != null">shop_addr=#{shopAddr},</if>
+                <if test="phone != null">phone=#{phone},</if>
+                <if test="shopImg != null">shop_img=#{shopImg},</if>
+                <if test="priority != null">priority=#{priority},</if>
+                <if test="lastEditTime != null">last_edit_time=#{lastEditTime},</if>
+                <if test="enableStatus != null">enable_status=#{enableStatus},</if>
+                <if test="advice != null">advice=#{advice},</if>
+                <if test="area != null">area_id=#{area.areaId},</if>
+                <if test="shopCategory != null">shop_category_id=#{shopCategory.shopCategoryId}</if>
+            </set>
+        where shop_id=#{shopId}
+    </update>
+
+</mapper>
