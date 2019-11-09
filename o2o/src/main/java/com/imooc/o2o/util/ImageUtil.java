@@ -68,14 +68,16 @@ public class ImageUtil {
         //               (3)定义透明度
         // 4.(.outputQuality)压缩图片：0.8 即压缩成 80%
         // 5.(.toFile)将处理过的图片输出到指定地方
-//        Thumbnails.of(new File("/Users/boykchen/Desktop/8.10-校园商铺实战案例-o2o/Image/testImage.png"))
-//                .size(200, 200).watermark(Positions.BOTTOM_RIGHT,
-//                ImageIO.read(new File(basePath + "/watermark.jpg")), 0.25f).outputQuality(0.8f)
-//                .toFile("/Users/boykchen/Desktop/8.10-校园商铺实战案例-o2o/Image/getTestImg.png");
+        Thumbnails.of(new File("/Users/boykchen/Desktop/WechatIMG560.jpeg"))
+                .size(200, 200).watermark(Positions.BOTTOM_RIGHT,
+                ImageIO.read(new File(basePath + "/WuXingImg.png")), 1.0f)
+                .toFile("/Users/boykchen/Desktop/TestImg.png");
 
-        Thumbnails.of(new File("/Users/boykchen/Desktop/图片1.png"))
-                .size(200, 200).outputQuality(0.8f)
-                .toFile("/Users/boykchen/Desktop/getTestImg.png");
+//        Thumbnails.of(new File("/Users/boykchen/Desktop/WechatIMG13.jpeg"))
+//                .size(60, 40).outputQuality(1.0f)
+//                .toFile("/Users/boykchen/Desktop/WuXingImg.png");
+//
+//        System.out.println("图片压缩成功！");
     }
 
     //------------ MethodStar ----------------//
@@ -174,6 +176,7 @@ public class ImageUtil {
         //	        System.out.println(str.substring(str.lastIndexOf('.')));     // .png
         return originalFileName.substring(originalFileName.lastIndexOf("."));
 
+//        return ".png";
     }
 
     /**
@@ -195,6 +198,26 @@ public class ImageUtil {
 
         // 返回随机文件名
         return nowTimeAndRannum.toString();
+    }
+
+    // 2019。10。29---------------------------------------start
+    /**
+     * storePath是文件的路径还是目录的路径， 如果storePath是文件路径则删除该文件，
+     * 如果storePath是目录路径则删除该目录下的所有文件
+     *
+     * @param storePath
+     */
+    public static void deleteFileOrPath(String storePath) {
+        File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+        if (fileOrPath.exists()) {
+            if (fileOrPath.isDirectory()) {
+                File files[] = fileOrPath.listFiles();
+                for (int i = 0; i < files.length; i++) {
+                    files[i].delete();
+                }
+            }
+            fileOrPath.delete();
+        }
     }
 
 }

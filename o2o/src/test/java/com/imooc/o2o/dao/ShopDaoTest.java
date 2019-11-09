@@ -20,6 +20,14 @@ public class ShopDaoTest extends BaseTest {
     // 测试新增店铺信息
 
     @Test
+    public void testQueryByShopId() {
+        long shopId = 1;
+        Shop shop = shopDao.queryByShopId(shopId);
+        System.out.println("areaId:" + shop.getArea().getAreaId());
+        System.out.println("areaName:" + shop.getArea().getAreaName());
+    }
+
+    @Test
     /**
      * 回滚设置，不插入数据库中！
      */

@@ -25,6 +25,8 @@ public class TestDaoTest extends BaseTest {
 
         Assert.assertEquals(2,areaList.size());
 
+        System.out.println(areaList.get(0).getAreaName());
+
     }
 
 }

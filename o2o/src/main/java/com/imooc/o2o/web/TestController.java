@@ -37,7 +37,6 @@ public class TestController {
     @ResponseBody
     private String testShopStateEnum(){
 
-
         return String.valueOf(shopService.addShop(null,null).getState()) + "，"
                 + String.valueOf(shopService.addShop(null,null).getStateInfo());
     }
